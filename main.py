@@ -8,6 +8,8 @@ SIZE = (width, height)
 square_size = width // 8
 board = [[".." for i in range(8)] for j in range(8)]
 imagepieces = {}
+piecesclicked = []
+placesclicked = []
 #setting up the board
 def initboard():
     global board
@@ -56,8 +58,6 @@ def drawboard():
 
 
 initboard()
-for x in board:
-    print(x)
 initimages()
 p.init()
 screen = p.display.set_mode(SIZE)
@@ -66,7 +66,18 @@ while running:
         if evnt.type == p.QUIT:
             running = False
         if evnt.type == p.MOUSEBUTTONDOWN:
-            pos = p.mouse.get_pos()    
+            pos = p.mouse.get_pos()
+            posx = pos[0]//square_size
+            posy = pos[1]//square_size
+            pieceselected = board[posy][posx]
+            piecesclicked.append(pieceselected)
+            placesclicked.append((posy, posx))
+        if len(placesclicked) == 2:
+            print(piecesclicked)
+            board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+            board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+            piecesclicked = []
+            placesclicked = []
     drawboard()
     drawpieces()
     p.display.flip()
