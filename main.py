@@ -1,5 +1,5 @@
 import pygame as p
-
+whitemove = True
 running = True
 WHITE = (255, 255, 255)
 GRAY = (128, 128, 128)
@@ -74,10 +74,33 @@ while running:
             placesclicked.append((posy, posx))
         if len(placesclicked) == 2:
             print(piecesclicked)
-            board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
-            board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
-            piecesclicked = []
-            placesclicked = []
+            if(piecesclicked[0] != ".."):
+                if whitemove == True:
+                    if(piecesclicked[0][0]) == "w":
+                        board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+                        board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                        piecesclicked = []
+                        placesclicked = []
+                        whitemove = not whitemove
+                        print(whitemove)
+                    else:
+                        piecesclicked = []
+                        placesclicked = []
+                elif whitemove == False:
+                    if(piecesclicked[0][0]) == "b":
+                        board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+                        board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                        piecesclicked = []
+                        placesclicked = []
+                        whitemove = not whitemove
+                        print(whitemove)
+                    else:
+                        piecesclicked = []
+                        placesclicked = []
+            else:
+                print("wrong...")
+                piecesclicked = []
+                placesclicked = []
     drawboard()
     drawpieces()
     p.display.flip()
