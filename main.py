@@ -85,11 +85,29 @@ while running:
                                     piecesclicked = []
                                     placesclicked = []
                                     whitemove = not whitemove
+                                elif placesclicked[0][0]-1 == placesclicked[1][0] and (placesclicked[0][1]+1 == placesclicked[1][1] or placesclicked[0][1]-1 == placesclicked[1][1]) and board[(placesclicked[1])[0]][(placesclicked[1])[1]][0] == "w":
+                                    board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+                                    board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                                    piecesclicked = []
+                                    placesclicked = []
+                                    whitemove = not whitemove
                                 else:
                                     piecesclicked = []
                                     placesclicked = []
+                            elif placesclicked[1][0] == 0:
+                                board[(placesclicked[1])[0]][(placesclicked[1])[1]] = "wQ"
+                                board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                                piecesclicked = []
+                                placesclicked = []
+                                whitemove = not whitemove
                             else:
                                 if (placesclicked[0][0]-1 == placesclicked[1][0] and placesclicked[0][1] == placesclicked[1][1]) and board[(placesclicked[1])[0]][(placesclicked[1])[1]] == "..":    
+                                    board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+                                    board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                                    piecesclicked = []
+                                    placesclicked = []
+                                    whitemove = not whitemove
+                                elif placesclicked[0][0]-1 == placesclicked[1][0] and (placesclicked[0][1]+1 == placesclicked[1][1] or placesclicked[0][1]-1 == placesclicked[1][1]) and board[(placesclicked[1])[0]][(placesclicked[1])[1]][0] == "b":
                                     board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
                                     board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
                                     piecesclicked = []
@@ -98,9 +116,23 @@ while running:
                                 else:
                                     piecesclicked = []
                                     placesclicked = [] 
+                        elif (piecesclicked[0][1]) == "N":
+                            if ((placesclicked[0][0]-2 == placesclicked[1][0] and placesclicked[0][1]-1 == placesclicked[1][1]) or (placesclicked[0][0]-2 == placesclicked[1][0] and placesclicked[0][1]+1 == placesclicked[1][1]) or (placesclicked[0][0]+2 == placesclicked[1][0] and placesclicked[0][1]-1 == placesclicked[1][1]) or (placesclicked[0][0]+2 == placesclicked[1][0] and placesclicked[0][1]+1 == placesclicked[1][1]) or (placesclicked[0][0]-1 == placesclicked[1][0] and placesclicked[0][1]+2 == placesclicked[1][1]) or (placesclicked[0][0]-1 == placesclicked[1][0] and placesclicked[0][1]-2 == placesclicked[1][1]) or (placesclicked[0][0]+1 == placesclicked[1][0] and placesclicked[0][1]-2 == placesclicked[1][1]) or (placesclicked[0][0]+1 == placesclicked[1][0] and placesclicked[0][1]+2 == placesclicked[1][1])) and board[(placesclicked[1])[0]][(placesclicked[1])[1]][0] != "w":
+                                print(piecesclicked)
+                                print(placesclicked)
+                                print(board[(placesclicked[1])[0]][(placesclicked[1])[1]][0])
+                                board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+                                board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                                piecesclicked = []
+                                placesclicked = []
+                                whitemove = not whitemove
+                            else:
+                                piecesclicked = []
+                                placesclicked = []
                         else:
                             piecesclicked = []
-                            placesclicked = []              
+                            placesclicked = []         
+
                     else:
                         piecesclicked = []
                         placesclicked = []
@@ -114,11 +146,26 @@ while running:
                                     piecesclicked = []
                                     placesclicked = []
                                     whitemove = not whitemove
-                                else:
+                                elif placesclicked[0][0]+1 == placesclicked[1][0] and (placesclicked[0][1]+1 == placesclicked[1][1] or placesclicked[0][1]-1 == placesclicked[1][1]) and board[(placesclicked[1])[0]][(placesclicked[1])[1]] != "..":
+                                    board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+                                    board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
                                     piecesclicked = []
-                                    placesclicked = []        
+                                    placesclicked = []
+                                    whitemove = not whitemove  
+                            elif placesclicked[1][0] == 7:
+                                board[(placesclicked[1])[0]][(placesclicked[1])[1]] = "bQ"
+                                board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                                piecesclicked = []
+                                placesclicked = []
+                                whitemove = not whitemove
                             else:
                                 if (placesclicked[0][0]+1 == placesclicked[1][0] and placesclicked[0][1] == placesclicked[1][1]) and board[(placesclicked[1])[0]][(placesclicked[1])[1]] == "..":    
+                                    board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+                                    board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                                    piecesclicked = []
+                                    placesclicked = []
+                                    whitemove = not whitemove
+                                elif placesclicked[0][0]+1 == placesclicked[1][0] and (placesclicked[0][1]+1 == placesclicked[1][1] or placesclicked[0][1]-1 == placesclicked[1][1]) and board[(placesclicked[1])[0]][(placesclicked[1])[1]] != "..":
                                     board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
                                     board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
                                     piecesclicked = []
@@ -127,6 +174,19 @@ while running:
                                 else:
                                     piecesclicked = []
                                     placesclicked = []
+                        elif (piecesclicked[0][1]) == "N":
+                            if ((placesclicked[0][0]-2 == placesclicked[1][0] and placesclicked[0][1]-1 == placesclicked[1][1]) or (placesclicked[0][0]-2 == placesclicked[1][0] and placesclicked[0][1]+1 == placesclicked[1][1]) or (placesclicked[0][0]+2 == placesclicked[1][0] and placesclicked[0][1]-1 == placesclicked[1][1]) or (placesclicked[0][0]+2 == placesclicked[1][0] and placesclicked[0][1]+1 == placesclicked[1][1]) or (placesclicked[0][0]-1 == placesclicked[1][0] and placesclicked[0][1]+2 == placesclicked[1][1]) or (placesclicked[0][0]-1 == placesclicked[1][0] and placesclicked[0][1]-2 == placesclicked[1][1]) or (placesclicked[0][0]+1 == placesclicked[1][0] and placesclicked[0][1]-2 == placesclicked[1][1]) or (placesclicked[0][0]+1 == placesclicked[1][0] and placesclicked[0][1]+2 == placesclicked[1][1])) and board[(placesclicked[1])[0]][(placesclicked[1])[1]][0] != "b":
+                                print(piecesclicked)
+                                print(placesclicked)
+                                print(board[(placesclicked[1])[0]][(placesclicked[1])[1]][0])
+                                board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+                                board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                                piecesclicked = []
+                                placesclicked = []
+                                whitemove = not whitemove
+                            else:
+                                piecesclicked = []
+                                placesclicked = []
                         else:
                             piecesclicked = []
                             placesclicked = []          
