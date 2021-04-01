@@ -77,28 +77,63 @@ while running:
             if(piecesclicked[0] != ".."):
                 if whitemove == True:
                     if(piecesclicked[0][0]) == "w":
-                        board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
-                        board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
-                        piecesclicked = []
-                        placesclicked = []
-                        whitemove = not whitemove
-                        print(whitemove)
+                        if(piecesclicked[0][1]) == "P":
+                            if placesclicked[0][0] == 6:
+                                if (placesclicked[0][0]-2 == placesclicked[1][0] or placesclicked[0][0]-1 == placesclicked[1][0]) and placesclicked[0][1] == placesclicked[1][1] and board[(placesclicked[1])[0]][(placesclicked[1])[1]] == "..":
+                                    board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+                                    board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                                    piecesclicked = []
+                                    placesclicked = []
+                                    whitemove = not whitemove
+                                else:
+                                    piecesclicked = []
+                                    placesclicked = []
+                            else:
+                                if (placesclicked[0][0]-1 == placesclicked[1][0] and placesclicked[0][1] == placesclicked[1][1]) and board[(placesclicked[1])[0]][(placesclicked[1])[1]] == "..":    
+                                    board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+                                    board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                                    piecesclicked = []
+                                    placesclicked = []
+                                    whitemove = not whitemove
+                                else:
+                                    piecesclicked = []
+                                    placesclicked = [] 
+                        else:
+                            piecesclicked = []
+                            placesclicked = []              
                     else:
                         piecesclicked = []
                         placesclicked = []
                 elif whitemove == False:
                     if(piecesclicked[0][0]) == "b":
-                        board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
-                        board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
-                        piecesclicked = []
-                        placesclicked = []
-                        whitemove = not whitemove
-                        print(whitemove)
+                        if(piecesclicked[0][1]) == "P":
+                            if placesclicked[0][0] == 1:
+                                if (placesclicked[0][0]+2 == placesclicked[1][0] or placesclicked[0][0]+1 == placesclicked[1][0]) and placesclicked[0][1] == placesclicked[1][1] and board[(placesclicked[1])[0]][(placesclicked[1])[1]] == "..":
+                                    board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+                                    board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                                    piecesclicked = []
+                                    placesclicked = []
+                                    whitemove = not whitemove
+                                else:
+                                    piecesclicked = []
+                                    placesclicked = []        
+                            else:
+                                if (placesclicked[0][0]+1 == placesclicked[1][0] and placesclicked[0][1] == placesclicked[1][1]) and board[(placesclicked[1])[0]][(placesclicked[1])[1]] == "..":    
+                                    board[(placesclicked[1])[0]][(placesclicked[1])[1]] = piecesclicked[0]
+                                    board[(placesclicked[0])[0]][(placesclicked[0])[1]] = ".."
+                                    piecesclicked = []
+                                    placesclicked = []
+                                    whitemove = not whitemove
+                                else:
+                                    piecesclicked = []
+                                    placesclicked = []
+                        else:
+                            piecesclicked = []
+                            placesclicked = []          
                     else:
                         piecesclicked = []
                         placesclicked = []
             else:
-                print("wrong...")
                 piecesclicked = []
                 placesclicked = []
     drawboard()
